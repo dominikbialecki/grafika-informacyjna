@@ -45,10 +45,10 @@
     <mat-sidenav-content>
         <div class="content-wrapper">
             <mat-toolbar class="header">
-                <button mat-icon-button class="navbar-trigger-button" (click)="sidenav.toggle()">
-                    <mat-icon [inline]="true" class="large-icon">menu</mat-icon>
-                </button>
                 <mat-toolbar-row class="h-100">
+                    <button mat-icon-button class="navbar-trigger-button" (click)="sidenav.toggle()">
+                        <mat-icon [inline]="true" class="large-icon">menu</mat-icon>
+                    </button>
                     <span>
                         {{getHeaderTittle() | translate }}
                     </span>

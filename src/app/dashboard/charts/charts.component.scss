@@ -10,7 +10,6 @@
 }
 
 .chart {
-  width: 100%;
-  height: 100%;
-  background-color: #dc3545;
+  min-width: 400px;
+  min-height: 300px;
 }
