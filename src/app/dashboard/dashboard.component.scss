@@ -1,0 +1,71 @@
+@import 'variables';
+
+.mat-drawer-container {
+  background-color: transparent;
+}
+
+
+.nav-width {
+  width: 250px;
+}
+
+.nav-indent {
+  padding-left: 30px;
+}
+
+.mat-sidenav {
+  background: #92c1f3;
+
+  .mat-nav-list {
+    .mat-list-item {
+      color: #fff;
+      text-transform: uppercase;
+
+      .mat-list-icon {
+        height: auto;
+      }
+    }
+
+    .mat-list-item.active {
+      color: $mainColor;
+    }
+  }
+}
+
+.header {
+  position: relative;
+  height: 80px;
+  padding-left: 40px;
+  flex: 0 0 auto;
+
+  .navbar-trigger-button {
+    outline: none;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0%, -50%);
+    z-index: 1000;
+  }
+}
+
+.content-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+
+  .content {
+    flex: 1 1 auto;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content > * {
+    &:not(router-outlet) {
+      flex: 1 1 auto;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

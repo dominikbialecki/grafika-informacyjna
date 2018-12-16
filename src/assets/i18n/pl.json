@@ -1,0 +1,312 @@
+{
+  "NAVBAR": {
+    "POLAND": {
+      "NAME": "Polska",
+      "MASOVIA": {
+        "NAME": "Mazowieckie"
+      },
+      "LOWER_SILESIA": {
+        "NAME": "Dolnośląskie"
+      },
+      "GREATER_POLAND": {
+        "NAME": "Wielkopolskie",
+        "POZNAŃ": {
+          "NAME": "Poznań"
+        },
+        "KALISZ": {
+          "NAME": "Kalisz"
+        },
+        "KONIN": {
+          "NAME": "Konin"
+        },
+        "LESZNO": {
+          "NAME": "Leszno"
+        },
+        "POZNAŃ_COUNTY": {
+          "NAME": "powiat poznański"
+        },
+        "OSTRÓW_WIELKOPOLSKI_COUNTY": {
+          "NAME": "powiat ostrowski"
+        },
+        "GNIEZNO_COUNTY": {
+          "NAME": "powiat gnieźnieński"
+        },
+        "PIŁA_COUNTY": {
+          "NAME": "powiat pilski"
+        },
+        "KONIN_COUNTY": {
+          "NAME": "powiat koniński"
+        },
+        "KOŁO_COUNTY": {
+          "NAME": "powiat kolski"
+        },
+        "CZARNKÓW_TRZCIANKA_COUNTY": {
+          "NAME": "powiat czarnkowsko-trzcianecki"
+        },
+        "SZAMOTUŁY_COUNTY": {
+          "NAME": "powiat szamotulski"
+        },
+        "TUREK_COUNTY": {
+          "NAME": "powiat turecki"
+        },
+        "KALISZ_COUNTY": {
+          "NAME": "powiat kaliski"
+        },
+        "KOŚCIAN_COUNTY": {
+          "NAME": "powiat kościański"
+        },
+        "KROTOSZYN_COUNTY": {
+          "NAME": "powiat krotoszyński"
+        },
+        "GOSTYŃ_COUNTY": {
+          "NAME": "powiat gostyński"
+        },
+        "WRZEŚNIA_COUNTY": {
+          "NAME": "powiat wrzesiński"
+        },
+        "NOWY_TOMYŚL_COUNTY": {
+          "NAME": "powiat nowotomyski"
+        },
+        "JAROCIN_COUNTY": {
+          "NAME": "powiat jarociński"
+        },
+        "ZŁOTÓW_COUNTY": {
+          "NAME": "powiat złotowski"
+        },
+        "WĄGROWIEC_COUNTY": {
+          "NAME": "powiat wągrowiecki"
+        },
+        "PLESZEW_COUNTY": {
+          "NAME": "powiat pleszewski"
+        },
+        "RAWICZ_COUNTY": {
+          "NAME": "powiat rawicki"
+        },
+        "SŁUPCA_COUNTY": {
+          "NAME": "powiat słupecki"
+        },
+        "ŚREM_COUNTY": {
+          "NAME": "powiat śremski"
+        },
+        "OBORNIKI_COUNTY": {
+          "NAME": "powiat obornicki"
+        },
+        "KĘPNO_COUNTY": {
+          "NAME": "powiat kępiński"
+        },
+        "WOLSZTYN_COUNTY": {
+          "NAME": "powiat wolsztyński"
+        },
+        "ŚRODA_WIELKOPOLSKA_COUNTY": {
+          "NAME": "powiat średzki"
+        },
+        "OSTRZESZÓW_COUNTY": {
+          "NAME": "powiat ostrzeszowski"
+        },
+        "LESZNO_COUNTY": {
+          "NAME": "powiat leszczyński"
+        },
+        "GRODZISK_WIELKOPOLSKI_COUNTY": {
+          "NAME": "powiat grodziski"
+        },
+        "CHODZIEŻ_COUNTY": {
+          "NAME": "powiat chodzieski"
+        },
+        "MIĘDZYCHÓD_COUNTY": {
+          "NAME": "powiat międzychodzki"
+        }
+      },
+      "SILESIA": {
+        "NAME": "Śląskie"
+      },
+      "POMERANIA": {
+        "NAME": "Pomorskie"
+      },
+      "ŁÓDŹ": {
+        "NAME": "Łódź"
+      },
+      "LESSER_POLAND": {
+        "NAME": "Małopolskie"
+      },
+      "WEST_POMERANIA": {
+        "NAME": "Zachodniopomorskie"
+      },
+      "LUBUSZ": {
+        "NAME": "Lubuskie"
+      },
+      "KUJAWY_POMERANIA": {
+        "NAME": "Kujawsko-pomorskie"
+      },
+      "OPOLE": {
+        "NAME": "Opolskie"
+      },
+      "ŚWIĘTOKRZYSKIE": {
+        "NAME": "Świętokrzyskie"
+      },
+      "WARMIA_MASURIA": {
+        "NAME": "Warmińsko-mazurskie"
+      },
+      "PODLASKIE": {
+        "NAME": "Podlaskie"
+      },
+      "PODKARPACKIE": {
+        "NAME": "Podkarpackie"
+      }
+    }
+  },
+  "HEADER": {
+    "POLAND": {
+      "NAME": "Polska",
+      "MASOVIA": {
+        "NAME": "Województwo mazowieckie"
+      },
+      "LOWER_SILESIA": {
+        "NAME": "Województwo dolnośląskie"
+      },
+      "GREATER_POLAND": {
+        "NAME": "Województwo wielkopolskie",
+        "POZNAŃ": {
+          "NAME": "Poznań"
+        },
+        "KALISZ": {
+          "NAME": "Kalisz"
+        },
+        "KONIN": {
+          "NAME": "Konin"
+        },
+        "LESZNO": {
+          "NAME": "Leszno"
+        },
+        "POZNAŃ_COUNTY": {
+          "NAME": "Powiat poznański"
+        },
+        "OSTRÓW_WIELKOPOLSKI_COUNTY": {
+          "NAME": "Powiat ostrowski"
+        },
+        "GNIEZNO_COUNTY": {
+          "NAME": "Powiat gnieźnieński"
+        },
+        "PIŁA_COUNTY": {
+          "NAME": "Powiat pilski"
+        },
+        "KONIN_COUNTY": {
+          "NAME": "Powiat koniński"
+        },
+        "KOŁO_COUNTY": {
+          "NAME": "Powiat kolski"
+        },
+        "CZARNKÓW_TRZCIANKA_COUNTY": {
+          "NAME": "Powiat czarnkowsko-trzcianecki"
+        },
+        "SZAMOTUŁY_COUNTY": {
+          "NAME": "Powiat szamotulski"
+        },
+        "TUREK_COUNTY": {
+          "NAME": "Powiat turecki"
+        },
+        "KALISZ_COUNTY": {
+          "NAME": "Powiat kaliski"
+        },
+        "KOŚCIAN_COUNTY": {
+          "NAME": "Powiat kościański"
+        },
+        "KROTOSZYN_COUNTY": {
+          "NAME": "Powiat krotoszyński"
+        },
+        "GOSTYŃ_COUNTY": {
+          "NAME": "Powiat gostyński"
+        },
+        "WRZEŚNIA_COUNTY": {
+          "NAME": "Powiat wrzesiński"
+        },
+        "NOWY_TOMYŚL_COUNTY": {
+          "NAME": "Powiat nowotomyski"
+        },
+        "JAROCIN_COUNTY": {
+          "NAME": "Powiat jarociński"
+        },
+        "ZŁOTÓW_COUNTY": {
+          "NAME": "Powiat złotowski"
+        },
+        "WĄGROWIEC_COUNTY": {
+          "NAME": "Powiat wągrowiecki"
+        },
+        "PLESZEW_COUNTY": {
+          "NAME": "Powiat pleszewski"
+        },
+        "RAWICZ_COUNTY": {
+          "NAME": "Powiat rawicki"
+        },
+        "SŁUPCA_COUNTY": {
+          "NAME": "Powiat słupecki"
+        },
+        "ŚREM_COUNTY": {
+          "NAME": "Powiat śremski"
+        },
+        "OBORNIKI_COUNTY": {
+          "NAME": "Powiat obornicki"
+        },
+        "KĘPNO_COUNTY": {
+          "NAME": "Powiat kępiński"
+        },
+        "WOLSZTYN_COUNTY": {
+          "NAME": "Powiat wolsztyński"
+        },
+        "ŚRODA_WIELKOPOLSKA_COUNTY": {
+          "NAME": "Powiat średzki"
+        },
+        "OSTRZESZÓW_COUNTY": {
+          "NAME": "Powiat ostrzeszowski"
+        },
+        "LESZNO_COUNTY": {
+          "NAME": "Powiat leszczyński"
+        },
+        "GRODZISK_WIELKOPOLSKI_COUNTY": {
+          "NAME": "Powiat grodziski"
+        },
+        "CHODZIEŻ_COUNTY": {
+          "NAME": "Powiat chodzieski"
+        },
+        "MIĘDZYCHÓD_COUNTY": {
+          "NAME": "Powiat międzychodzki"
+        }
+      },
+      "SILESIA": {
+        "NAME": "Województwo śląskie"
+      },
+      "POMERANIA": {
+        "NAME": "Województwo pomorskie"
+      },
+      "ŁÓDŹ": {
+        "NAME": "Województwo łódzkie"
+      },
+      "LESSER_POLAND": {
+        "NAME": "Województwo małopolskie"
+      },
+      "WEST_POMERANIA": {
+        "NAME": "Województwo zachodniopomorskie"
+      },
+      "LUBUSZ": {
+        "NAME": "Województwo lubuskie"
+      },
+      "KUJAWY_POMERANIA": {
+        "NAME": "Województwo kujawsko-pomorskie"
+      },
+      "OPOLE": {
+        "NAME": "Województwo opolskie"
+      },
+      "ŚWIĘTOKRZYSKIE": {
+        "NAME": "Województwo świętokrzyskie"
+      },
+      "WARMIA_MASURIA": {
+        "NAME": "Województwo warmińsko-mazurskie"
+      },
+      "PODLASKIE": {
+        "NAME": "Województwo podlaskie"
+      },
+      "PODKARPACKIE": {
+        "NAME": "Województwo podkarpackie"
+      }
+    }
+  }
+}
