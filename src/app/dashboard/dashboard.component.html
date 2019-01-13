@@ -1,45 +1,57 @@
 <mat-sidenav-container class="h-100 w-100">
     <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
                  [(opened)]="opened">
-        <mat-nav-list class="nav-width">
-            <ng-container *ngFor="let country of navbarData">
-                <mat-list-item [routerLink]="[country.redirectUrl]"
-                               (click)="toggleExpanded(country)"
-                               routerLinkActive="active"
-                               title="{{'NAVBAR.' + country.nameKeyScope + '.NAME' | translate}}">
-                    <div mat-line>
-                        {{'NAVBAR.' + country.nameKeyScope + '.NAME'| translate}}
-                    </div>
-                </mat-list-item>
-                <ng-container *ngIf="country.children.length && country.expanded">
-                    <div class="nav-indent" *ngFor="let voivodeship of country.children">
-                        <mat-nav-list>
-                            <mat-list-item routerLinkActive="active"
-                                           [routerLink]="[country.redirectUrl, voivodeship.redirectUrl]"
-                                           title="{{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.NAME' | translate}}"
-                                           (click)="toggleExpanded(voivodeship)">
-                                <div mat-line>
-                                    {{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.NAME' | translate}}
+        <mat-drawer-container class="nav-list-container">
+            <mat-nav-list class="nav-width">
+                <ng-container *ngFor="let country of navbarData">
+                    <mat-list-item [routerLink]="[country.redirectUrl]"
+                                   [queryParams]="getQueryParams()"
+                                   (click)="toggleExpanded(country)"
+                                   routerLinkActive="active"
+                                   title="{{'NAVBAR.' + country.nameKeyScope + '.NAME' | translate}}">
+                        <div mat-line>
+                            {{'NAVBAR.' + country.nameKeyScope + '.NAME'| translate}}
+                        </div>
+                    </mat-list-item>
+                    <ng-container *ngIf="country.children.length && country.expanded">
+                        <div class="nav-indent" *ngFor="let voivodeship of country.children">
+                            <mat-nav-list>
+                                <mat-list-item routerLinkActive="active"
+                                               [routerLink]="[country.redirectUrl, voivodeship.redirectUrl]"
+                                               title="{{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.NAME' | translate}}"
+                                               (click)="toggleExpanded(voivodeship)">
+                                    <div mat-line>
+                                        {{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.NAME' | translate}}
+                                    </div>
+                                </mat-list-item>
+                            </mat-nav-list>
+                            <ng-container *ngIf="voivodeship.children.length && voivodeship.expanded">
+                                <div class="nav-indent" *ngFor="let county of voivodeship.children">
+                                    <mat-nav-list>
+                                        <mat-list-item routerLinkActive="active"
+                                                       [routerLink]="[country.redirectUrl, voivodeship.redirectUrl, county.redirectUrl]"
+                                                       title="{{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.' + county.nameKeyScope + '.NAME' | translate}}">
+                                            <div mat-line>
+                                                {{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.' + county.nameKeyScope + '.NAME' | translate}}
+                                            </div>
+                                        </mat-list-item>
+                                    </mat-nav-list>
                                 </div>
-                            </mat-list-item>
-                        </mat-nav-list>
-                        <ng-container *ngIf="voivodeship.children.length && voivodeship.expanded">
-                            <div class="nav-indent" *ngFor="let county of voivodeship.children">
-                                <mat-nav-list>
-                                    <mat-list-item routerLinkActive="active"
-                                                   [routerLink]="[country.redirectUrl, voivodeship.redirectUrl, county.redirectUrl]"
-                                                   title="{{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.' + county.nameKeyScope + '.NAME' | translate}}">
-                                        <div mat-line>
-                                            {{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.' + county.nameKeyScope + '.NAME' | translate}}
-                                        </div>
-                                    </mat-list-item>
-                                </mat-nav-list>
-                            </div>
-                        </ng-container>
-                    </div>
+                            </ng-container>
+                        </div>
+                    </ng-container>
                 </ng-container>
-            </ng-container>
-        </mat-nav-list>
+            </mat-nav-list>
+        </mat-drawer-container>
+        <mat-divider></mat-divider>
+        <mat-drawer-container class="nav-filters-container">
+            <mat-selection-list (selectionChange)="setQueryParams($event)">
+                <mat-list-option class="text-white" *ngFor="let filter of filters">
+                    {{filter.textKey | uppercase}}
+                </mat-list-option>
+            </mat-selection-list>
+        </mat-drawer-container>
+        c
     </mat-sidenav>
 
     <mat-sidenav-content>
@@ -50,7 +62,10 @@
                         <mat-icon [inline]="true" class="large-icon">menu</mat-icon>
                     </button>
                     <span>
-                        {{getHeaderTittle() | translate }}
+                        <ng-container *ngFor="let tittleKey of getHeaderTittleKeys(); last as isLast">
+                        {{tittleKey | translate }}
+                            <ng-container *ngIf="!isLast">&nbsp; &gt; &nbsp;</ng-container>
+                        </ng-container>
                     </span>
                 </mat-toolbar-row>
 

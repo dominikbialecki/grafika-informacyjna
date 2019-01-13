@@ -76,7 +76,7 @@ export const navbarData: NavbarData[] = [
     }
 ];
 
-export function getUrlNameKeyMap() {
+export function getUrlNameKeysMap() {
     const urlNameKeyArr = [];
     navbarData.forEach(country => {
         urlNameKeyArr.push([country.redirectUrl, country.nameKeyScope + '.NAME']);
@@ -84,13 +84,13 @@ export function getUrlNameKeyMap() {
             country.children.forEach(voivodeship => {
                 urlNameKeyArr.push([
                     [country.redirectUrl, voivodeship.redirectUrl].join('/'),
-                    [country.nameKeyScope, voivodeship.nameKeyScope].join('.') + '.NAME',
+                    [country.nameKeyScope, voivodeship.nameKeyScope],
                 ]);
                 if (voivodeship.children) {
                     voivodeship.children.forEach(county => {
                         urlNameKeyArr.push([
                             [country.redirectUrl, voivodeship.redirectUrl, county.redirectUrl].join('/'),
-                            [country.nameKeyScope, voivodeship.nameKeyScope, county.nameKeyScope].join('.') + '.NAME',
+                            [country.nameKeyScope, voivodeship.nameKeyScope, county.nameKeyScope],
                         ])
                     });
                 }

@@ -34,7 +34,6 @@ export class ChartComponent implements OnInit {
 
     ngOnInit() {
         setTimeout(() => {
-            console.log(this.data)
             return this.chartData = this.data
         }, 10);
     }

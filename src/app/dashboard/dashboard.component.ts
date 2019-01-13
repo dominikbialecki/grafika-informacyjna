@@ -15,6 +15,13 @@ import { TranslateService } from "@ngx-translate/core";
 export class DashboardComponent implements OnInit, OnDestroy {
 
     private headerData;
+    filters = [
+        { filter: "budget", textKey: 'Budżet gosp. domowych' },
+        { filter: "construction-works", textKey: 'Ceny robót budowlanych' },
+        { filter: "criminality", textKey: 'Poziom przestępczości' },
+        { filter: "air-quality", textKey: 'Jakość powietrza' },
+    ];
+    selectedFilters = [];
     navbarData = navbarData;
     private readonly _mobileQueryListener: () => void;
     mobileQuery: MediaQueryList;
@@ -55,8 +62,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
         )
     }
 
-    getHeaderTittle() {
-        return this.route.headerTitle;
+    getHeaderTittleKeys() {
+        return this.route.headerTitleKeys.map(key => `HEADER.${key}.NAME`);
     }
 
     ngOnDestroy(): void {
@@ -74,4 +81,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
             }
         }
     };
+
+    setQueryParams(event) {
+        // set sorting query params
+        console.log(event)
+    }
+
+    getQueryParams() {
+        return this.selectedFilters.map(filter => filter.filter);
+    }
 }

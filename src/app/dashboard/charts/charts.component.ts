@@ -11,7 +11,6 @@ export class ChartsComponent implements OnInit {
     }
 
     ngOnInit() {
-        console.log(this.data[0])
     }
 
     data = [
@@ -116,5 +115,8 @@ export class ChartsComponent implements OnInit {
             ]
         }]
     ];
-
+    //1 znormalizowane wzgledem wartosci poczatkowej dane wszystkich parametrow
+    //2 np. w wojewodztwie slupki cen mieszkan powiatow
+    //3
+    //4
 }

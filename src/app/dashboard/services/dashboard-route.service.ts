@@ -2,15 +2,15 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Subject } from "rxjs";
 import { ActivatedRoute, NavigationEnd, Router, UrlSegment } from "@angular/router";
 import { filter, map, mergeMap, takeUntil } from "rxjs/operators";
-import { getUrlNameKeyMap } from "../consts/navbar-data";
+import { getUrlNameKeysMap } from "../consts/navbar-data";
 
 @Injectable({
     providedIn: 'root'
 })
 export class DashboardRouteService implements OnDestroy {
 
-    private _headerTitle = 'Grafika informacyjna';
-    private urlNameKeyMap = getUrlNameKeyMap();
+    private _headerTitleKeys: string[] = [];
+    private urlNameKeysMap = getUrlNameKeysMap();
     route = new BehaviorSubject(null);
     onDestroy$ = new Subject();
 
@@ -48,16 +48,23 @@ export class DashboardRouteService implements OnDestroy {
 
     private setHeaderTitle(urlSegments: UrlSegment[]) {
         const url = urlSegments.map(u => u.path).join('/');
-        const nameKey = this.urlNameKeyMap.get(url);
-        if (!nameKey) {
-            console.error(`Couln't find header title nameKey for url: ${url}`);
+        const nameKeys = <any[]>this.urlNameKeysMap.get(url);
+        if (!nameKeys || !nameKeys.length) {
+            console.error(`Couldn't find header title nameKey for url: ${url}`);
         } else {
-            this._headerTitle = 'HEADER.' + <string>nameKey;
+            const fullKeys = [];
+            nameKeys.forEach((key, index, arr) => {
+                const currentKey = arr.slice(0, index + 1).join('.');
+                fullKeys.push(currentKey);
+            });
+
+            this._headerTitleKeys = fullKeys;
+            // this._headerTitle = 'HEADER.' + <string>nameKey;
         }
     }
 
-    get headerTitle() {
-        return this._headerTitle;
+    get headerTitleKeys() {
+        return this._headerTitleKeys;
     }
 
     ngOnDestroy() {
