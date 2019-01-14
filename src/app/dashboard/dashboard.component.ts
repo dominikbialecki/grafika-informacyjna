@@ -3,7 +3,7 @@ import { MediaMatcher } from "@angular/cdk/layout";
 import { NavbarData, navbarData } from "./consts/navbar-data";
 import { DashboardRouteService } from "./services/dashboard-route.service";
 import { mergeMap, take } from "rxjs/operators";
-import { UrlSegment } from "@angular/router";
+import { Router, UrlSegment } from "@angular/router";
 import { TranslateService } from "@ngx-translate/core";
 
 @Component({
@@ -14,14 +14,16 @@ import { TranslateService } from "@ngx-translate/core";
 })
 export class DashboardComponent implements OnInit, OnDestroy {
 
-    private headerData;
     filters = [
-        { filter: "budget", textKey: 'Budżet gosp. domowych' },
-        { filter: "construction-works", textKey: 'Ceny robót budowlanych' },
-        { filter: "criminality", textKey: 'Poziom przestępczości' },
-        { filter: "air-quality", textKey: 'Jakość powietrza' },
+        { filter: "priceOfFlat", textKey: "DASHBOARD.FILTERS.priceOfFlat" },
+        { filter: "population", textKey: "DASHBOARD.FILTERS.population" },
+        { filter: "salary", textKey: "DASHBOARD.FILTERS.salary" },
+        { filter: "newFlats", textKey: "DASHBOARD.FILTERS.newFlats" },
+        { filter: "pollution", textKey: "DASHBOARD.FILTERS.pollution" },
+        { filter: "criminality", textKey: "DASHBOARD.FILTERS.criminality" },
     ];
-    selectedFilters = [];
+
+    selectedFilters = this.filters;
     navbarData = navbarData;
     private readonly _mobileQueryListener: () => void;
     mobileQuery: MediaQueryList;
@@ -31,6 +33,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
                 media: MediaMatcher,
                 private route: DashboardRouteService,
                 private translate: TranslateService,
+                private router: Router,
     ) {
         this.mobileQuery = media.matchMedia('(max-width: 600px)');
         this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -82,12 +85,12 @@ export class DashboardComponent implements OnInit, OnDestroy {
         }
     };
 
-    setQueryParams(event) {
-        // set sorting query params
-        console.log(event)
+    setQueryParams(filters) {
+        const queryParams = this.mapFiltersToQueryParams(filters)
+        this.router.navigate(['.'], { queryParams })
     }
 
-    getQueryParams() {
-        return this.selectedFilters.map(filter => filter.filter);
+    mapFiltersToQueryParams(filters) {
+        return { filter: filters.map(f => f.filter) };
     }
 }

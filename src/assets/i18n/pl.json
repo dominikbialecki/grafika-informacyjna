@@ -1,4 +1,14 @@
 {
+  "DASHBOARD": {
+    "FILTERS": {
+      "priceOfFlat": "Cena mieszkania za 1m kw.",
+      "population": "Zaludnienie",
+      "salary": "Średnie wynagrodzenie",
+      "newFlats": "Mieszkania oddane do użytku",
+      "pollution": "Zanieczyszczenie",
+      "criminality": "Przestępczość"
+    }
+  },
   "NAVBAR": {
     "POLAND": {
       "NAME": "Polska",

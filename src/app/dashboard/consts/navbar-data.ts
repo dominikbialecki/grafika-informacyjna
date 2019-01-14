@@ -79,7 +79,7 @@ export const navbarData: NavbarData[] = [
 export function getUrlNameKeysMap() {
     const urlNameKeyArr = [];
     navbarData.forEach(country => {
-        urlNameKeyArr.push([country.redirectUrl, country.nameKeyScope + '.NAME']);
+        urlNameKeyArr.push([country.redirectUrl, [country.nameKeyScope]]);
         if (country.children) {
             country.children.forEach(voivodeship => {
                 urlNameKeyArr.push([

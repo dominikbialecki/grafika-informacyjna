@@ -5,7 +5,7 @@
             <mat-nav-list class="nav-width">
                 <ng-container *ngFor="let country of navbarData">
                     <mat-list-item [routerLink]="[country.redirectUrl]"
-                                   [queryParams]="getQueryParams()"
+                                   [queryParams]="mapFiltersToQueryParams(selectedFilters)"
                                    (click)="toggleExpanded(country)"
                                    routerLinkActive="active"
                                    title="{{'NAVBAR.' + country.nameKeyScope + '.NAME' | translate}}">
@@ -18,6 +18,7 @@
                             <mat-nav-list>
                                 <mat-list-item routerLinkActive="active"
                                                [routerLink]="[country.redirectUrl, voivodeship.redirectUrl]"
+                                               [queryParams]="mapFiltersToQueryParams(selectedFilters)"
                                                title="{{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.NAME' | translate}}"
                                                (click)="toggleExpanded(voivodeship)">
                                     <div mat-line>
@@ -30,6 +31,7 @@
                                     <mat-nav-list>
                                         <mat-list-item routerLinkActive="active"
                                                        [routerLink]="[country.redirectUrl, voivodeship.redirectUrl, county.redirectUrl]"
+                                                       [queryParams]="mapFiltersToQueryParams(selectedFilters)"
                                                        title="{{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.' + county.nameKeyScope + '.NAME' | translate}}">
                                             <div mat-line>
                                                 {{'NAVBAR.' + country.nameKeyScope + '.' + voivodeship.nameKeyScope + '.' + county.nameKeyScope + '.NAME' | translate}}
@@ -45,13 +47,12 @@
         </mat-drawer-container>
         <mat-divider></mat-divider>
         <mat-drawer-container class="nav-filters-container">
-            <mat-selection-list (selectionChange)="setQueryParams($event)">
-                <mat-list-option class="text-white" *ngFor="let filter of filters">
-                    {{filter.textKey | uppercase}}
+            <mat-selection-list [(ngModel)]="selectedFilters" (ngModelChange)="setQueryParams($event)">
+                <mat-list-option class="text-white" *ngFor="let filter of filters" [value]="filter">
+                    {{filter.textKey | translate | uppercase}}
                 </mat-list-option>
             </mat-selection-list>
         </mat-drawer-container>
-        c
     </mat-sidenav>
 
     <mat-sidenav-content>

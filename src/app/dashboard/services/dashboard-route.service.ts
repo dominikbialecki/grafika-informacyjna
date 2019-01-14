@@ -57,9 +57,7 @@ export class DashboardRouteService implements OnDestroy {
                 const currentKey = arr.slice(0, index + 1).join('.');
                 fullKeys.push(currentKey);
             });
-
             this._headerTitleKeys = fullKeys;
-            // this._headerTitle = 'HEADER.' + <string>nameKey;
         }
     }
 
