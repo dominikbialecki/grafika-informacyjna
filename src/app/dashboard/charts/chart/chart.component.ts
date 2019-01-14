@@ -7,12 +7,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 })
 export class ChartComponent implements OnInit, OnChanges {
 
-    chartData = [
-        {
-            "name": "Cena mieszkania za metr kw.",
-            "series": []
-        }
-    ];
+    chartData = [{ "name": "", "series": [] }];
     @Input('data') data;
     colorScheme = {
         domain: [
@@ -22,22 +17,21 @@ export class ChartComponent implements OnInit, OnChanges {
     showXAxis = true;
     showYAxis = true;
     showXAxisLabel = true;
-    xAxisLabel = 'Data';
     showYAxisLabel = true;
-    yAxisLabel = 'Cena mieszkania za m kw.';
     timeline = false;
 
     constructor() {
+
     }
 
     ngOnInit() {
         setTimeout(() => {
-            return this.chartData = this.data
+            return this.chartData = this.data.data
         }, 10);
     }
 
     ngOnChanges() {
-        this.chartData = this.data;
+        this.chartData = this.data.data;
     }
 
 }

@@ -1,11 +1,17 @@
 {
   "FILTERS": {
-      "priceOfFlat": "Cena mieszkania za 1m kw.",
-      "population": "Zaludnienie",
-      "salary": "Średnie wynagrodzenie",
-      "newFlats": "Mieszkania oddane do użytku",
-      "pollution": "Zanieczyszczenie",
-      "criminality": "Przestępczość"
+    "priceOfFlat": "Cena mieszkania za 1m kw.",
+    "population": "Zaludnienie",
+    "salary": "Średnie wynagrodzenie",
+    "newFlats": "Mieszkania oddane do użytku",
+    "pollution": "Zanieczyszczenie",
+    "criminality": "Przestępczość"
+  },
+  "COMMON": {
+    "DATE": "Data",
+    "VOIEVOIDENSHIPS": "Województwo",
+    "COUNTY": "Powiat",
+    "GROW_RATIO": "Współczynnik wzrostu"
   },
   "NAVBAR": {
     "POLAND": {

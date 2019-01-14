@@ -6,8 +6,8 @@
             [yAxis]="showYAxis"
             [showXAxisLabel]="showXAxisLabel"
             [showYAxisLabel]="showYAxisLabel"
-            [xAxisLabel]="xAxisLabel"
-            [yAxisLabel]="yAxisLabel"
+            [xAxisLabel]="data.xAxisLabelTranslateKey | translate"
+            [yAxisLabel]="data.yAxisLabelTranslateKey | translate"
             [timeline]="timeline">
     </ngx-charts-line-chart>
 </div>

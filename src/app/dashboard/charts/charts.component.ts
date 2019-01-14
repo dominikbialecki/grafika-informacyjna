@@ -18,7 +18,12 @@ import { combineLatest } from "rxjs";
 })
 export class ChartsComponent implements OnInit {
 
-    data = [[], [], [], []];
+    chartsData = [
+        { xAxisLabelTranslateKey: "COMMON.DATE", yAxisLabelTranslateKey: "COMMON.GROW_RATIO", data: [] },
+        { xAxisLabelTranslateKey: "", yAxisLabelTranslateKey: "FILTERS.priceOfFlat", data: [] },
+        { xAxisLabelTranslateKey: "COMMON.DATE", yAxisLabelTranslateKey: "", data: [] },
+        { xAxisLabelTranslateKey: "COMMON.DATE", yAxisLabelTranslateKey: "", data: [] },
+    ];
     private readonly originalData = [
         { name: "priceOfFlat", data: priceOfFlat },
         { name: "population", data: population },
@@ -39,21 +44,24 @@ export class ChartsComponent implements OnInit {
             return { params, queryParams }
         })
             .subscribe(({ params, queryParams }) => {
-                this.data = this.getChartsData(params, queryParams);
+                this.chartsData = this.getChartsData(this.chartsData, params, queryParams);
             });
     }
 
-    private getChartsData(params, queryParams) {
+    private getChartsData(currentChartsData, params, queryParams) {
         const filteredData = this.getFilteredData(this.originalData, queryParams);
         const currentUnitCode = this.getCurrentUnit(params);
         const currentUnitData = this.getCurrentUnitData(filteredData, currentUnitCode);
         // const dataWithUnitNames = this.mapCodeToNames(data);
-        return [
+        const newData = [
             this.getGrowChartUnitData(currentUnitData),
             this.getBarChartData(currentUnitCode, this.originalData),
             currentUnitData,
             []
         ];
+        return currentChartsData.map((chartData, index) => {
+            return { ...chartData, data: newData[index] };
+        });
     }
 
     private getFilteredData(data, queryParams) {
@@ -95,7 +103,6 @@ export class ChartsComponent implements OnInit {
     }
 
     private getBarChartData(currentUnitCode, data) {
-
     }
 
 
