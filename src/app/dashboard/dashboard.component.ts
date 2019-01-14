@@ -15,12 +15,12 @@ import { TranslateService } from "@ngx-translate/core";
 export class DashboardComponent implements OnInit, OnDestroy {
 
     filters = [
-        { filter: "priceOfFlat", textKey: "DASHBOARD.FILTERS.priceOfFlat" },
-        { filter: "population", textKey: "DASHBOARD.FILTERS.population" },
-        { filter: "salary", textKey: "DASHBOARD.FILTERS.salary" },
-        { filter: "newFlats", textKey: "DASHBOARD.FILTERS.newFlats" },
-        { filter: "pollution", textKey: "DASHBOARD.FILTERS.pollution" },
-        { filter: "criminality", textKey: "DASHBOARD.FILTERS.criminality" },
+        { filter: "priceOfFlat", textKey: "DASHBOARD.priceOfFlat" },
+        { filter: "population", textKey: "DASHBOARD.population" },
+        { filter: "salary", textKey: "DASHBOARD.salary" },
+        { filter: "newFlats", textKey: "DASHBOARD.newFlats" },
+        { filter: "pollution", textKey: "DASHBOARD.pollution" },
+        { filter: "criminality", textKey: "DASHBOARD.criminality" },
     ];
 
     selectedFilters = this.filters;
@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit() {
+        this.setQueryParams(this.selectedFilters);
         this.route.route
             .pipe(
                 mergeMap((a => a.url)),
@@ -86,7 +87,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     };
 
     setQueryParams(filters) {
-        const queryParams = this.mapFiltersToQueryParams(filters)
+        const queryParams = this.mapFiltersToQueryParams(filters);
         this.router.navigate(['.'], { queryParams })
     }
 
