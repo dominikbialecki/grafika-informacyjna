@@ -15,12 +15,12 @@ import { TranslateService } from "@ngx-translate/core";
 export class DashboardComponent implements OnInit, OnDestroy {
 
     filters = [
-        { filter: "priceOfFlat", textKey: "DASHBOARD.priceOfFlat" },
-        { filter: "population", textKey: "DASHBOARD.population" },
-        { filter: "salary", textKey: "DASHBOARD.salary" },
-        { filter: "newFlats", textKey: "DASHBOARD.newFlats" },
-        { filter: "pollution", textKey: "DASHBOARD.pollution" },
-        { filter: "criminality", textKey: "DASHBOARD.criminality" },
+        { filter: "priceOfFlat", textKey: "FILTERS.priceOfFlat" },
+        { filter: "population", textKey: "FILTERS.population" },
+        { filter: "salary", textKey: "FILTERS.salary" },
+        { filter: "newFlats", textKey: "FILTERS.newFlats" },
+        { filter: "pollution", textKey: "FILTERS.pollution" },
+        { filter: "criminality", textKey: "FILTERS.criminality" },
     ];
 
     selectedFilters = this.filters;
