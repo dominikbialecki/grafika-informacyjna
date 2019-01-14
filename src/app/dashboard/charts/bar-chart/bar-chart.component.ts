@@ -1,11 +1,11 @@
 import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'app-chart',
-    templateUrl: './chart.component.html',
-    styleUrls: ['./chart.component.scss']
+    selector: 'app-bar-chart',
+    templateUrl: './bar-chart.component.html',
+    styleUrls: ['./bar-chart.component.scss']
 })
-export class ChartComponent implements OnInit, OnChanges {
+export class BarChartComponent implements OnInit, OnChanges {
 
     chartData = [{ "name": "", "series": [] }];
     @Input('data') data;

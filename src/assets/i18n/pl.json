@@ -9,9 +9,10 @@
   },
   "COMMON": {
     "DATE": "Data",
-    "VOIEVOIDENSHIPS": "Województwo",
+    "VOIVOIDENSHIP": "Województwo",
     "COUNTY": "Powiat",
-    "GROW_RATIO": "Współczynnik wzrostu"
+    "GROW_RATIO": "Współczynnik wzrostu",
+    "PICK_YEAR": "Wybierz rok"
   },
   "NAVBAR": {
     "POLAND": {
@@ -147,6 +148,9 @@
       },
       "LUBUSZ": {
         "NAME": "Lubuskie"
+      },
+      "LUBLIN": {
+        "NAME": "Lubelskie"
       },
       "KUJAWY_POMERANIA": {
         "NAME": "Kujawsko-pomorskie"

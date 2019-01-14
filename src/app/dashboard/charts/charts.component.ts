@@ -11,6 +11,7 @@ import { dataCodeNameKeysMap } from "../consts/data/dataCodeNameKeysMap";
 import { urlDataCodeMap } from "../consts/data/urlDataCodeMap";
 import { combineLatest } from "rxjs";
 
+
 @Component({
     selector: 'app-charts',
     templateUrl: './charts.component.html',
@@ -32,11 +33,19 @@ export class ChartsComponent implements OnInit {
         { name: "pollution", data: pollution },
         { name: "criminality", data: criminality },
     ];
-
+    readonly yearOptions = [];
+    barChartSelectedYear = 2017;
+    params;
+    queryParams;
 
     constructor(private route: ActivatedRoute,
                 private translate: TranslateService,
     ) {
+        this.yearOptions = this.getYearOptions();
+    }
+
+    private getYearOptions() {
+        return population[0].series.map(data => parseInt(data.name));
     }
 
     ngOnInit() {
@@ -44,7 +53,9 @@ export class ChartsComponent implements OnInit {
             return { params, queryParams }
         })
             .subscribe(({ params, queryParams }) => {
-                this.chartsData = this.getChartsData(this.chartsData, params, queryParams);
+                this.params = params;
+                this.queryParams = queryParams;
+                this.getChartsData(this.chartsData, params, queryParams);
             });
     }
 
@@ -52,14 +63,13 @@ export class ChartsComponent implements OnInit {
         const filteredData = this.getFilteredData(this.originalData, queryParams);
         const currentUnitCode = this.getCurrentUnit(params);
         const currentUnitData = this.getCurrentUnitData(filteredData, currentUnitCode);
-        // const dataWithUnitNames = this.mapCodeToNames(data);
         const newData = [
             this.getGrowChartUnitData(currentUnitData),
             this.getBarChartData(currentUnitCode, this.originalData),
             currentUnitData,
             []
         ];
-        return currentChartsData.map((chartData, index) => {
+        this.chartsData = currentChartsData.map((chartData, index) => {
             return { ...chartData, data: newData[index] };
         });
     }
@@ -103,25 +113,47 @@ export class ChartsComponent implements OnInit {
     }
 
     private getBarChartData(currentUnitCode, data) {
+        if (this.isCountry(currentUnitCode)) {
+            return this.getFilteredUnitsDataByNames(data, this.isVoivoidenship);
+        }
+        // TODO change filterFn if there are counties in other voivoidenships than those in greater poland
+        else if (this.isVoivoidenship(currentUnitCode)) {
+            return this.getFilteredUnitsDataByNames(data, this.isCounty);
+        } else if (this.isCounty(currentUnitCode)) {
+            return this.getFilteredUnitsDataByNames(data, this.isCounty);
+        } else {
+            console.error(`Couldn't find unit for unitCode ${currentUnitCode}`);
+        }
     }
 
+    private isCountry = (code): boolean => code === '0000000';
 
-    private getChildUnitsData() {
+    private isCounty = (code): boolean => !/00000$/.test(code);
 
-    }
+    private isVoivoidenship = (code): boolean => !this.isCountry(code) && /00000$/.test(code);
 
-    private mapCodesToNames(data) {
-        return this.mapEveryUnitData(data, (unitData) => {
-            const i18nKey = 'HEADER.' + dataCodeNameKeysMap.get(unitData.name) + '.NAME';
-            unitData.name = this.translate.instant(i18nKey);
-            return unitData;
+    private getFilteredUnitsDataByNames(data, filterFn) {
+        // TODO pick year form
+        const priceOfFlatCategory = data.find(category => category.name === 'priceOfFlat');
+        if (!priceOfFlatCategory) {
+            console.error('Couldn\'t find price of flat category');
+        }
+        const filteredPriceOfFlatData = priceOfFlatCategory.data.filter(unitData => filterFn(unitData.name));
+        return filteredPriceOfFlatData.map(unitData => {
+            const foundYearData = unitData.series.find(foundYearData => foundYearData.name === this.barChartSelectedYear.toString());
+            if (!foundYearData) {
+                console.error(`Couldn't find year data for year ${this.barChartSelectedYear}`);
+            }
+            return {
+                value: foundYearData.value,
+                name: this.mapCodeToName(unitData.name)
+            }
         });
     }
 
-    private mapEveryUnitData(data, callbackFn) {
-        return data.map(category => {
-            return category.data = category.data.map(callbackFn);
-        })
+    private mapCodeToName(code) {
+        const i18nKey = 'NAVBAR.' + dataCodeNameKeysMap.get(code) + '.NAME';
+        return this.translate.instant(i18nKey);
     }
-
 }
+

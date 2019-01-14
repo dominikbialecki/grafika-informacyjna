@@ -1,17 +1,28 @@
 <div class="content">
     <div class="row" style="margin-left: 0">
-        <div class="col-6 mat-elevation-z1 chart">
+        <div class="col-12 mat-elevation-z1 chart">
             <app-chart [data]="chartsData[0]"></app-chart>
         </div>
-        <div class="col-6 mat-elevation-z1 chart">
-            <app-chart [data]="chartsData[1]"></app-chart>
-        </div>
-        <div class="col-6 mat-elevation-z1 chart">
+        <div class="col-12 mat-elevation-z1 chart">
             <app-chart [data]="chartsData[2]"></app-chart>
         </div>
-        <div class="col-6 mat-elevation-z1 chart">
-            <app-chart [data]="chartsData[3]"></app-chart>
+        <div class="col-12 row justify-content-center">
+            <div class="col-auto row align-items-center">{{'COMMON.PICK_YEAR' | translate }}</div>
+            <mat-slider class="col"
+                        [(ngModel)]="barChartSelectedYear"
+                        [min]="yearOptions[0]"
+                        [max]="yearOptions[yearOptions.length - 1]"
+                        [step]="1"
+                        [thumbLabel]="true"
+                        [tickInterval]="1"
+                        (ngModelChange)="getChartsData(chartsData, params, queryParams)">
+            </mat-slider>
         </div>
+        <div class="col-12 mat-elevation-z1 chart">
+            <app-bar-chart [data]="chartsData[1]"></app-bar-chart>
+        </div>
+        <!--<div class="col-12 mat-elevation-z1 chart">-->
+        <!--<app-chart [data]="chartsData[3]"></app-chart>-->
+        <!--</div>-->
     </div>
-
 </div>

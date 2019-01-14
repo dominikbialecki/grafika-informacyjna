@@ -2,7 +2,7 @@ export const dataCodeNameKeysMap = new Map([
     ["0000000", "POLAND"],
     ["0200000", "POLAND.LOWER_SILESIA"],
     ["0400000", "POLAND.KUJAWY_POMERANIA"],
-    ["0600000", "POLAND.LUBELSKIE"],
+    ["0600000", "POLAND.LUBLIN"],
     ["0800000", "POLAND.LUBUSZ"],
     ["1000000", "POLAND.ŁÓDŹ"],
     ["1200000", "POLAND.LESSER_POLAND"],
